@@ -15,4 +15,5 @@
 % Pide que el usuario ingrese una lista al llamarse (tipo [1, 2, 3, 4, 5])
 lista_aleatoria(X) ->
     % Con la lista anterior, se crea una nueva con valores aleatorios de la primera
-    [Y || {_, Y} <- lists:sort([{rand:uniform(), N} || N <- X])].
+    ListaNueva = [Y || {_, Y} <- lists:sort([{rand:uniform(), N} || N <- X])],
+    io:format("~p~n", [ListaNueva]).

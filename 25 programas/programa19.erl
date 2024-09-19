@@ -13,4 +13,6 @@
 -export([inv_lista/1]).
 
 % Pide una lista de valores [1, 2, 3...], la invierte, y devuelve
-inv_lista(Lista) -> lists:reverse(Lista).
+inv_lista(Lista) ->
+    Atsil = lists:reverse(Lista),
+    io:format("Lista invertida: ~p~n", [Atsil]).

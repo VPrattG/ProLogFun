@@ -13,4 +13,6 @@
 -export([valor_aleatorio/1]).
 
 % Pide una lista, devuelve un valor aleatorio dentro de esta.
-valor_aleatorio(X) -> lists:nth(rand:uniform(length(X)), X).
+valor_aleatorio(X) ->
+    Item = lists:nth(rand:uniform(length(X)), X),
+    io:format("Elemento aleatorio obtenido: ~w~n", [Item]).

@@ -10,7 +10,7 @@
 %% --------------------------------------------------------------
 
 -module(programa21).
--export([fun1/2, fun2/2]).
+-export([fun1/2, fun2/2, main/1]).
 
 fun1(A, B) ->
     % Valores iniciales
@@ -20,3 +20,9 @@ fun1(A, B) ->
 fun2(A, B) ->
     % Valores invertidos
     io:format("Valores nuevos: ~p, ~p~n", [A, B]).
+
+main([A, B]) ->
+    % Convierte los atoms en tipos compatibles con las funciones
+    ATwo = atom_to_list(A),
+    BTwo = atom_to_list(B),
+    fun1(ATwo, BTwo).

@@ -8,7 +8,7 @@
 %% Fecha: 03 de septiembre de 2024
 %% --------------------------------------------------------------
 
--module(problema16).
+-module(programa16).
 -export([bucle_hw/0]).
 
 bucle_hw() -> io:format("Hello world!~n").
