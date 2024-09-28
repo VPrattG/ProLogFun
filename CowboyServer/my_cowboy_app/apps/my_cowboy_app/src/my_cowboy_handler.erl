@@ -4,6 +4,7 @@
 %% Description: my_cowboy_handler contiene la información a imprimir
 %% al recibir ciertas peticiones en la aplicación web desarrollada.
 %% En particular, se tienen funciones para "/" y "/saludo"
+%% "/saludo" requiere un parámetro de nombre para funcionar
 %%
 %% Fecha: 27 de septiembre de 2024
 %% --------------------------------------------------------------

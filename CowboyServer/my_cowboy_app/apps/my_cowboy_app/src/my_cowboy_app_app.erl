@@ -2,7 +2,7 @@
 %% Módulo: my_cowboy_app_app
 %% Autor: Van Pratt González Ricardo Adolfo
 %% Description: Este módulo es donde se indica que módulo se llamara
-%% según la ruta.
+%% según la ruta. La parte importante de qué hacer está en my_cowboy_handler
 %%
 %%
 %% Fecha: 27 de septiembre de 2024
