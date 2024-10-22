@@ -31,4 +31,3 @@ range(I, K, [I|R]) :- I < K, I1 is I + 1, range(I1, K, R).
 % Formato para su función
 % range(valor inicial, valor final, X)
 % ----------------------------------------------
-)
