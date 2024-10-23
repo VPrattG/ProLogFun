@@ -86,7 +86,7 @@ pack([], []).
 pack([X|Xs], [[X|Ys]|Zs]) :- transfer(X, Xs, Ys, Rest), pack(Rest, Zs).
 
 % Transfiere los elementos duplicados consecutivos a una sublista.
-transfer(X, [], [], []).
+transfer(_, [], [], []).
 % Si el siguiente elemento es diferente, termina la transferencia.
 transfer(X, [Y|Ys], [], [Y|Ys]) :- X \= Y.
 % Si el siguiente elemento es igual, agrégalo a la sublista.
