@@ -113,19 +113,94 @@ run-programa28: $(SRC_DIR)/programa28.pl
 run-programa29: $(SRC_DIR)/programa29.pl
 	$(PROLOG) -q -s $(SRC_DIR)/programa09.pl -s $(SRC_DIR)/programa10.pl -s $< -g "length_frequency([[a], [b, c], [d, e, f], [g, h, i, j]], F), writeln(F), halt."
 
-run-programa30: 
-	swipl -s $(SRC_DIR)/programa30.pl -g "(is_prime(25) -> write('Es primo'); write('No es primo')), nl, halt." -t halt
+run-programa30: $(SRC_DIR)/programa30.pl
+	$(PROLOG) -q -s $< -g "(is_prime(25) -> write('Es primo'); write('No es primo')), nl, halt." -t halt
+
+run-programa31: $(SRC_DIR)/programa31.pl
+	$(PROLOG) -q -s $< -g "gcd(25, 30, X), format('El máximo común divisor es: ~w', [X]), nl." -t halt
+
+run-programa32: $(SRC_DIR)/programa32.pl
+	$(PROLOG) -q -s $(SRC_DIR)/programa31.pl -s $< -g "(coprime(25, 30) -> ('25 y 30 son coprimos'); write('25 y 30 no son coprimos')), nl." -t halt
+
+run-programa33: $(SRC_DIR)/programa33.pl
+	$(PROLOG) -q -s $(SRC_DIR)/programa31.pl -s $(SRC_DIR)/programa32.pl -s $< -g \
+	"totient(100, X), format('100 tiene ~w valores coprimos menores que este', [X]), nl" -t halt
+
+run-programa34: $(SRC_DIR)/programa34.pl
+	$(PROLOG) -q -s $< -g "prime_factors(100, X), write('Factores primos de 100: '), write(X), nl" -t halt
+
+run-programa35: $(SRC_DIR)/programa35.pl
+	$(PROLOG) -q -s $(SRC_DIR)/programa09.pl -s $(SRC_DIR)/programa10.pl -s $(SRC_DIR)/programa34.pl -s $< -g \
+	"prime_factors_mult(100, X), write('Factores primos de 100 (Ahora con RLE): '), write(X), nl" -t halt
+
+run-programa36: $(SRC_DIR)/programa36.pl
+	$(PROLOG) -q -s $(SRC_DIR)/programa09.pl -s $(SRC_DIR)/programa10.pl -s $(SRC_DIR)/programa34.pl -s $(SRC_DIR)/programa35.pl -s $< -g \
+	"totient_improved(100, X), format('100 tiene ~w valores coprimos menores que este (ahora con totiente mejorado)', [X]), nl" -t halt
+
+run-programa37: $(SRC_DIR)/programa37.pl
+	$(PROLOG) -q -s $(SRC_DIR)/programa09.pl -s $(SRC_DIR)/programa10.pl -s $(SRC_DIR)/programa31.pl -s $(SRC_DIR)/programa32.pl -s $(SRC_DIR)/programa33.pl \
+	-s $(SRC_DIR)/programa34.pl -s $(SRC_DIR)/programa35.pl -s $(SRC_DIR)/programa36.pl -s $< -g "writeln('Para el número 100'), compare_totient(100)." -t halt
+
+run-programa38: $(SRC_DIR)/programa38.pl
+	$(PROLOG) -q -s $(SRC_DIR)/programa30.pl -s $< -g "prime_list(1, 100, X), format('Los primos entre 1 y 100 son ~w', [X]), nl" -t halt
+
+run-programa39: $(SRC_DIR)/programa39.pl
+	$(PROLOG) -q -s $(SRC_DIR)/programa30.pl -s $(SRC_DIR)/programa38.pl -s $< -g \
+	"goldbach(10, [X, Y]), format('Los primos ~w y ~w sumados son igual a 10', [X, Y]), nl" -t halt
+
+run-programa40: $(SRC_DIR)/programa40.pl
+	$(PROLOG) -q -s $(SRC_DIR)/programa30.pl -s $(SRC_DIR)/programa38.pl -s $(SRC_DIR)/programa39.pl -s $< -g \
+	"goldbach_list(4, 12, L), writeln('Composición goldbach para cada número par entre 4 y 12:'), write(L), nl" -t halt
+
+run-programa41: $(SRC_DIR)/programa41.pl
+	$(PROLOG) -q -s $< -g "problema41($(ARGS))" -t halt
+
+run-programa42: $(SRC_DIR)/programa42.pl
+	$(PROLOG) -q -s $< -g "problema42($(ARGS))" -t halt
+
+run-programa43: $(SRC_DIR)/programa43.pl
+	$(PROLOG) -q -s $< -g "problema43($(ARGS))" -t halt
+
+run-programa44: $(SRC_DIR)/programa44.pl
+	$(PROLOG) -q -s $< -g "problema44($(ARGS))" -t halt
+
+run-programa45: $(SRC_DIR)/programa45.pl
+	$(PROLOG) -q -s $< -g "problema45($(ARGS))" -t halt
+
+run-programa46: $(SRC_DIR)/programa46.pl
+	$(PROLOG) -q -s $< -g "problema46($(ARGS))" -t halt
+
+run-programa47: $(SRC_DIR)/programa47.pl
+	$(PROLOG) -q -s $< -g "problema47($(ARGS))" -t halt
+
+run-programa48: $(SRC_DIR)/programa48.pl
+	$(PROLOG) -q -s $< -g "problema48($(ARGS))" -t halt
+
+run-programa49: $(SRC_DIR)/programa49.pl
+	$(PROLOG) -q -s $< -g "problema49($(ARGS))" -t halt
+
+run-programa50: $(SRC_DIR)/programa50.pl
+	$(PROLOG) -q -s $< -g "problema50($(ARGS))" -t halt
+
 
 runall: run-programa01 run-programa02 run-programa03 run-programa04 run-programa05 \
         run-programa06 run-programa07 run-programa08 run-programa09 run-programa10 \
         run-programa11 run-programa12 run-programa13 run-programa14 run-programa15 \
         run-programa16 run-programa17 run-programa18 run-programa19 run-programa20 \
         run-programa21 run-programa22 run-programa23 run-programa24 run-programa25 \
-        run-programa26 run-programa27 run-programa28 run-programa29 run-programa30
+        run-programa26 run-programa27 run-programa28 run-programa29 run-programa30 \
+        run-programa31 run-programa32 run-programa33 run-programa34 run-programa35 \
+        run-programa36 run-programa37 run-programa38 run-programa39 run-programa40 \
+        run-programa41 run-programa42 run-programa43 run-programa44 run-programa45 \
+        run-programa46 run-programa47 run-programa48 run-programa49 run-programa50
 
 .PHONY: all clean runall run-programa01 run-programa02 run-programa03 run-programa04 run-programa05 \
         run-programa06 run-programa07 run-programa08 run-programa09 run-programa10 \
         run-programa11 run-programa12 run-programa13 run-programa14 run-programa15 \
         run-programa16 run-programa17 run-programa18 run-programa19 run-programa20 \
         run-programa21 run-programa22 run-programa23 run-programa24 run-programa25 \
-        run-programa26 run-programa27 run-programa28 run-programa29 run-programa30 clean
+        run-programa26 run-programa27 run-programa28 run-programa29 run-programa30 \
+        run-programa31 run-programa32 run-programa33 run-programa34 run-programa35 \
+        run-programa36 run-programa37 run-programa38 run-programa39 run-programa40 \
+        run-programa41 run-programa42 run-programa43 run-programa44 run-programa45 \
+        run-programa46 run-programa47 run-programa48 run-programa49 run-programa50
