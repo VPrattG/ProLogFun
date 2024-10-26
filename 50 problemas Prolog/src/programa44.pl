@@ -91,11 +91,18 @@ huffman(Fs, Hs) :-
 
 % Caso base para construir el árbol de Huffman.
 huffman_tree([fr(X, _) | []], hc(X, '0')).
-huffman_tree([fr(_, _) | [fr(_, _) | _]], _).
+huffman_tree([fr(X1, F1), fr(X2, F2) | Rest], Tree) :-
+    F12 is F1 + F2,
+    merge_nodes(X1, X2, F12, Rest, MergedList),
+    sort(2, @=<, MergedList, Sorted),
+    huffman_tree(Sorted, Tree).
+
+merge_nodes(X1, X2, F12, Rest, [fr(tree(X1, X2), F12) | Rest]).
 
 example :-
     Frequencies = [fr(a, 5), fr(b, 9), fr(c, 12), fr(d, 13), fr(e, 16), fr(f, 45)],
     huffman(Frequencies, HuffmanTree),
+    writeln('Ejemplo de árbol: '),
     write(HuffmanTree).
 
 % Se puede ejecutar simplemente escribiendo "example."
