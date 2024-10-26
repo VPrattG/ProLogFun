@@ -76,5 +76,19 @@
 % Utiliza el paradigma de generar y probar para encontrar todos los árboles que cumplen ambas propiedades.
 sym_cbal_trees(N, Ts) :- 
     findall(T, (cbal_tree(N, T), symmetric(T)), Ts).
+
+% Función auxiliar para imprimir árboles
+print_trees([]).
+print_trees([T|Ts]) :-
+    write('Árbol: '), write(T), nl,
+    print_trees(Ts).
+
+% Ejemplo para usar en el makefile
+example(N) :-
+    sym_cbal_trees(N, Ts),
+    write('Árboles simétricos balanceados de '), write(N), write(' nodos:'), nl,
+    print_trees(Ts).
+
+% necesita cargar programa46 y programa47
 % ----------------------------------------------
 
