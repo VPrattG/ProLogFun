@@ -153,34 +153,35 @@ run-programa40: $(SRC_DIR)/programa40.pl
 	"goldbach_list(4, 12, L), writeln('Composición goldbach para cada número par entre 4 y 12:'), write(L), nl" -t halt
 
 run-programa41: $(SRC_DIR)/programa41.pl
-	$(PROLOG) -q -s $< -g "problema41($(ARGS))" -t halt
+	$(PROLOG) -q -s $< -g "table(A, B, (A=1, B=1;A=1,B=2;A=2,B=1;A=2,B=2)), nl" -t halt
 
 run-programa42: $(SRC_DIR)/programa42.pl
-	$(PROLOG) -q -s $< -g "problema42($(ARGS))" -t halt
+	$(PROLOG) -q -s $< -g "writeln(and(true, false)), (and(true, false) -> write('AND verdadero'); write('AND falso')), nl" -t halt
 
 run-programa43: $(SRC_DIR)/programa43.pl
-	$(PROLOG) -q -s $< -g "problema43($(ARGS))" -t halt
+	$(PROLOG) -q -s $< -g "gray(3, X), write(X), nl" -t halt
 
 run-programa44: $(SRC_DIR)/programa44.pl
-	$(PROLOG) -q -s $< -g "problema44($(ARGS))" -t halt
+	$(PROLOG) -q -s $< -g "example, nl" -t halt
 
 run-programa45: $(SRC_DIR)/programa45.pl
-	$(PROLOG) -q -s $< -g "problema45($(ARGS))" -t halt
+	$(PROLOG) -q -s $< -g "(istree(t(1, nil, nil)) -> write('Es un árbol binario'); write('No es un árbol binario')), nl, halt." -t halt
 
 run-programa46: $(SRC_DIR)/programa46.pl
-	$(PROLOG) -q -s $< -g "problema46($(ARGS))" -t halt
+	$(PROLOG) -q -s $< -g "cbal_tree(4, T), write(T), nl." -t halt
 
 run-programa47: $(SRC_DIR)/programa47.pl
-	$(PROLOG) -q -s $< -g "problema47($(ARGS))" -t halt
+	$(PROLOG) -q -s $< -g "writeln('Árbol a comprobar: t(1, t(2, nil, nil), t(2, nil, nil))'), (symmetric(t(1, nil, nil))  \
+	-> write('Es un árbol simétrico'); write('No es un árbol simétrico')), nl, halt." -t halt
 
 run-programa48: $(SRC_DIR)/programa48.pl
-	$(PROLOG) -q -s $< -g "problema48($(ARGS))" -t halt
+	$(PROLOG) -q -s $< -g "construct([5,3,7,1,4,6,8], T), write(T), nl." -t halt
 
 run-programa49: $(SRC_DIR)/programa49.pl
-	$(PROLOG) -q -s $< -g "problema49($(ARGS))" -t halt
+	$(PROLOG) -q -s $(SRC_DIR)/programa46.pl -s $(SRC_DIR)/programa47.pl -s $< -g "example(3)" -t halt
 
 run-programa50: $(SRC_DIR)/programa50.pl
-	$(PROLOG) -q -s $< -g "problema50($(ARGS))" -t halt
+	$(PROLOG) -q -s $< -g "hbal_tree(3, T), writeln(T)" -t halt
 
 
 runall: run-programa01 run-programa02 run-programa03 run-programa04 run-programa05 \
