@@ -3,6 +3,8 @@
 %% Autor: Van Pratt González Ricardo Adolfo
 %% Description: Este programa representa una base de datos como se
 %% podría ver en SQL Server o algo así
+%%
+%% Corresponde a la asignación 05 en logifun/prolog/assignment
 %% --------------------------------------------------------------
 
 :- discontiguous

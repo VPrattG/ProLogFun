@@ -4,6 +4,7 @@
 %% Description: Este programa presenta entidades y sus relaciones
 %% similar a lo que se puede ver con SQL Server
 %%
+%% Corresponde a la asignación 08 en logifun/prolog/assignment
 %%
 %% Fecha: 11 de noviembre del 2024
 %% --------------------------------------------------------------

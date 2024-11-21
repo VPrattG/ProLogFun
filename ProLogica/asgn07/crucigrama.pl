@@ -3,6 +3,8 @@
 %% Autor: Van Pratt González Ricardo Adolfo
 %% Description: Este programa presenta un crucigrama que puede ser
 %% resuelto por el mismo prolog.
+%%
+%% Corresponde a la asignación 07 en logifun/prolog/assignment
 %% --------------------------------------------------------------
 
 % Predicado principal: Resolver el crucigrama
